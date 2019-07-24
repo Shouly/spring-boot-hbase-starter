@@ -33,8 +33,7 @@ public class HBaseAutoConfiguration {
 
     config.set(HBASE_ZOOKEEPER_QUORUM, hBaseProperties.getZookeeperQuorum());
 
-    HBaseTemplate hBaseTemplate = new HBaseTemplate(config);
+    return new HBaseTemplate(config);
 
-    return hBaseTemplate;
   }
 }
