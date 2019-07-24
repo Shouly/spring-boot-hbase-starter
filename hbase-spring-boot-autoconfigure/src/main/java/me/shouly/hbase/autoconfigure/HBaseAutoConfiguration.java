@@ -29,11 +29,11 @@ public class HBaseAutoConfiguration {
   @ConditionalOnMissingBean(HBaseTemplate.class)
   public HBaseTemplate hBaseConfig() {
 
-    HBaseTemplate hBaseTemplate = new HBaseTemplate();
-
     org.apache.hadoop.conf.Configuration config = HBaseConfiguration.create();
 
     config.set(HBASE_ZOOKEEPER_QUORUM, hBaseProperties.getZookeeperQuorum());
+
+    HBaseTemplate hBaseTemplate = new HBaseTemplate(config);
 
     return hBaseTemplate;
   }
